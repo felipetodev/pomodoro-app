@@ -1,7 +1,9 @@
-export default function Home () {
+import Home from './components/home'
+
+export const runtime = 'edge'
+
+export default function IndexPage () {
   return (
-    <main className="grid place-content-center h-screen">
-      <h1 className="text-4xl">Pomodoro App</h1>
-    </main>
+    <Home />
   )
 }
