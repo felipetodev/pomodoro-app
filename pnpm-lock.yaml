@@ -17,6 +17,7 @@ specifiers:
   eslint-plugin-react: ^7.33.2
   lucide: 0.287.0
   next: 13.5.5
+  next-themes: 0.2.1
   postcss: ^8
   react: ^18
   react-dom: ^18
@@ -29,6 +30,7 @@ dependencies:
   clsx: 2.0.0
   lucide: 0.287.0
   next: 13.5.5_biqbaboplfbrettd7655fr4n2y
+  next-themes: 0.2.1_vpowtxamxu7xd4qz2exq33ob3i
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   tailwind-merge: 1.14.0
@@ -2236,6 +2238,18 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /next-themes/0.2.1_vpowtxamxu7xd4qz2exq33ob3i:
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 13.5.5_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /next/13.5.5_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-LddFJjpfrtrMMw8Q9VLhIURuSidiCNcMQjRqcPtrKd+Fx07MsG7hYndJb/f2d3I+mTbTotsTJfCnn0eZ/YPk8w==}

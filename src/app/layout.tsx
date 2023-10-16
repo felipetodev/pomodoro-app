@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { TailwindIndicator } from './components/tailwind-indicator'
+import { ThemeProvider } from './components/theme-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,10 +19,12 @@ export default function RootLayout ({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-col min-h-screen">
-          {children}
-        </div>
-        <TailwindIndicator />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <div className="flex flex-col min-h-screen">
+            {children}
+          </div>
+          <TailwindIndicator />
+        </ThemeProvider>
       </body>
     </html>
   )
