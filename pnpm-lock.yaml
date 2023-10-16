@@ -13,6 +13,7 @@ specifiers:
   eslint-plugin-n: '^15.0.0 || ^16.0.0 '
   eslint-plugin-promise: ^6.0.0
   eslint-plugin-react: ^7.33.2
+  lucide: 0.287.0
   next: 13.5.5
   postcss: ^8
   react: ^18
@@ -21,6 +22,7 @@ specifiers:
   typescript: ^5.2.2
 
 dependencies:
+  lucide: 0.287.0
   next: 13.5.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1932,6 +1934,10 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /lucide/0.287.0:
+    resolution: {integrity: sha512-PbnhhAiVSBgy2V+2Y/aRdBhUQVXLwG9KnWGIB+cv372A7HWWdDc4XFQQAby5u9rDJplUX7de3SrdaNapTaBf4g==}
+    dev: false
 
   /merge2/1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
