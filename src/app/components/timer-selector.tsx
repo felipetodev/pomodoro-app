@@ -16,7 +16,7 @@ function TimerSelector () {
   const searchParams = useSearchParams()
   const newParams = new URLSearchParams(searchParams.toString())
   return (
-    <Tabs defaultValue="pomodoro" className="w-[400px]">
+    <Tabs defaultValue="pomodoro" className="w-full">
       <TabsList className="grid w-full grid-cols-3">
         <TabsTrigger
           value="pomodoro"

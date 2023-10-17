@@ -3,8 +3,7 @@ import { useSearchParams } from 'next/navigation'
 import CircularProgress from './ui/circular-progress'
 import ShareCounter from './ui/share'
 import { Slider } from './ui/slider'
-import { Button } from './ui/button'
-import { PauseCircleIcon, PlayCircleIcon } from 'lucide-react'
+import Controls from './controls'
 import { DEFAULT_TIME } from '../lib/constants'
 import { getTimeFormat } from '../lib/utils'
 
@@ -64,7 +63,7 @@ function Timer ({ variant }: { variant: TimerProps }) {
         value={[time]}
         max={DEFAULT_TIME[variant]}
         min={0}
-        className="w-[400px]"
+        className="w-full sm:w-[400px]"
       />
 
       <CircularProgress
@@ -75,20 +74,11 @@ function Timer ({ variant }: { variant: TimerProps }) {
           {getTimeFormat(time).minutes()}:{getTimeFormat(time).seconds()}
         </time>
       </CircularProgress>
-      <div className='flex mx-auto'>
-        {playing
-          ? (
-
-            <Button size='lg' className='text-4xl' onClick={handlePause}>
-              PAUSE <PauseCircleIcon className='ml-2 w-8 h-8' />
-            </Button>
-            )
-          : (
-            <Button size='lg' className='text-4xl' onClick={handlePlay}>
-              START <PlayCircleIcon className='ml-2 w-8 h-8' />
-            </Button>
-            )}
-      </div>
+      <Controls
+        playing={playing}
+        handlePlay={handlePlay}
+        handlePause={handlePause}
+      />
       <ShareCounter />
     </div>
   )
