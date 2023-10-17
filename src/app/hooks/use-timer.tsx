@@ -13,6 +13,12 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
   const [playing, setPlaying] = useState(false)
   const [time, setTime] = useState(DEFAULT_TIME[variant])
 
+  const resetTimer = () => {
+    setTime(DEFAULT_TIME[variant])
+    setPlaying(false)
+    clearInterval(interval)
+  }
+
   useEffect(() => {
     // set broadcast channel to sync timer
     const bc = new BroadcastChannel('timer')
@@ -22,22 +28,21 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
   }, [])
 
   useEffect(() => {
-    // reset timer when variant changes
-    setTime(DEFAULT_TIME[variant])
-    setPlaying(false)
-    clearInterval(interval)
+    resetTimer()
   }, [variant])
 
   const handlePlay = () => {
     setPlaying(true)
     const bc = new BroadcastChannel('timer')
 
+    if (time === 0) setTime(DEFAULT_TIME[variant])
+
     interval = setInterval(() => {
       setTime((time) => {
         if (time <= 1000) {
           clearInterval(interval)
           setPlaying(false)
-          setTime(DEFAULT_TIME[variant])
+          setTime(0)
 
           if (notification) {
             alarmNotification()
@@ -67,6 +72,7 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
     notification,
     handlePlay,
     handlePause,
+    handleReset: resetTimer,
     handleNotification
   }
 }

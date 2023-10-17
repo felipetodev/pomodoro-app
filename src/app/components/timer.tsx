@@ -16,6 +16,7 @@ function Timer ({ variant }: { variant: TimerProps }) {
     notification,
     handlePlay,
     handlePause,
+    handleReset,
     handleNotification
   } = useTimer({ variant })
   const searchParams = useSearchParams()
@@ -46,6 +47,7 @@ function Timer ({ variant }: { variant: TimerProps }) {
         playing={playing}
         handlePlay={handlePlay}
         handlePause={handlePause}
+        handleReset={handleReset}
       />
     </div>
   )

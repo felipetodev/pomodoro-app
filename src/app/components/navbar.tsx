@@ -8,7 +8,9 @@ function Navbar () {
     <nav className="flex items-center h-[50px] border-b max-w-lg mx-auto">
       <Link href="/" className='ml-2 flex items-center'>
         <Shapes className="w-8 h-8 mr-2" />
-        <h1>Pomodoro.app</h1>
+        <h1 className='font-semibold'>
+          Pomodoro.app
+        </h1>
       </Link>
       <a
         target='_blank'
