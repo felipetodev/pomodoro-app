@@ -12,6 +12,7 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
   })
   const [playing, setPlaying] = useState(false)
   const [time, setTime] = useState(DEFAULT_TIME[variant])
+  const bc = new BroadcastChannel('timer')
 
   const resetTimer = () => {
     setTime(DEFAULT_TIME[variant])
@@ -21,9 +22,10 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
 
   useEffect(() => {
     // set broadcast channel to sync timer
-    const bc = new BroadcastChannel('timer')
     bc.onmessage = (e) => {
-      setTime(e.data)
+      const { playing, remaining } = e.data
+      setPlaying(playing)
+      setTime(remaining)
     }
 
     void Notification.requestPermission()
@@ -35,7 +37,6 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
 
   const handlePlay = () => {
     setPlaying(true)
-    const bc = new BroadcastChannel('timer')
 
     if (time === 0) setTime(DEFAULT_TIME[variant])
 
@@ -45,6 +46,7 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
           clearInterval(interval)
           setPlaying(false)
           setTime(0)
+          bc.postMessage({ playing: false, remaining: 0 })
 
           if (notification) {
             alarmNotification()
@@ -53,13 +55,14 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
           browserNotification()
           return 0
         }
-        bc.postMessage(time - 1000)
+        bc.postMessage({ playing: true, remaining: time - 1000 })
         return time - 1000
       })
     }, 1000)
   }
 
   const handlePause = () => {
+    bc.postMessage({ playing: false, remaining: time })
     setPlaying(false)
     clearInterval(interval)
   }
