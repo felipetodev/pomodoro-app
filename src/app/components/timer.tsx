@@ -1,60 +1,18 @@
-import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import CircularProgress from './ui/circular-progress'
 import ShareCounter from './ui/share'
 import { Slider } from './ui/slider'
 import Controls from './controls'
+import { useTimer } from '../hooks/use-timer'
 import { DEFAULT_TIME } from '../lib/constants'
 import { getTimeFormat } from '../lib/utils'
 
 import { type TimerProps } from '../lib/types'
 
-let interval: any
-
 function Timer ({ variant }: { variant: TimerProps }) {
-  const [playing, setPlaying] = useState(false)
-  const [time, setTime] = useState(DEFAULT_TIME[variant])
+  const { playing, time, handlePlay, handlePause } = useTimer({ variant })
   const searchParams = useSearchParams()
   const hasVariant = searchParams?.get('timer') ?? ''
-
-  useEffect(() => {
-    // reset timer when variant changes
-    setTime(DEFAULT_TIME[variant])
-    setPlaying(false)
-    clearInterval(interval)
-  }, [variant])
-
-  useEffect(() => {
-    // set broadcast channel to sync timer
-    const bc = new BroadcastChannel('timer')
-    bc.onmessage = (e) => {
-      setTime(e.data)
-    }
-  }, [])
-
-  const handlePlay = () => {
-    setPlaying(true)
-    const bc = new BroadcastChannel('timer')
-
-    interval = setInterval(() => {
-      setTime((time) => {
-        if (time <= 1000) {
-          clearInterval(interval)
-          setPlaying(false)
-          setTime(DEFAULT_TIME[variant])
-          bc.postMessage(0)
-          return 0
-        }
-        bc.postMessage(time - 1000)
-        return time - 1000
-      })
-    }, 1000)
-  }
-
-  const handlePause = () => {
-    setPlaying(false)
-    clearInterval(interval)
-  }
 
   return (
     <div className='flex flex-col'>
