@@ -6,7 +6,10 @@ import { type TimerProps } from '../lib/types'
 let interval: any
 
 export function useTimer ({ variant }: { variant: TimerProps }) {
-  const [notification, setNotification] = useState(true)
+  const [notification, setNotification] = useState(() => {
+    const notification = global.localStorage.getItem('notification')
+    return notification === 'true'
+  })
   const [playing, setPlaying] = useState(false)
   const [time, setTime] = useState(DEFAULT_TIME[variant])
 
@@ -53,12 +56,17 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
     clearInterval(interval)
   }
 
+  const handleNotification = (val: boolean) => {
+    setNotification(val)
+    global.localStorage.setItem('notification', val.toString())
+  }
+
   return {
     time,
     playing,
     notification,
     handlePlay,
     handlePause,
-    handleNotification: setNotification
+    handleNotification
   }
 }
