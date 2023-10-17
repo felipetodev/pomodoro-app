@@ -19,6 +19,13 @@ function Timer ({ variant }: { variant: TimerProps }) {
   const hasVariant = searchParams?.get('timer') ?? ''
 
   useEffect(() => {
+    // reset timer when variant changes
+    setTime(DEFAULT_TIME[variant])
+    setPlaying(false)
+    clearInterval(interval)
+  }, [variant])
+
+  useEffect(() => {
     // set broadcast channel to sync timer
     const bc = new BroadcastChannel('timer')
     bc.onmessage = (e) => {
