@@ -1,6 +1,6 @@
 import { Share } from 'lucide-react'
-import { Button } from './ui/button'
-import { centerRectOnScreen } from '../lib/utils'
+import { Button } from './button'
+import { centerRectOnScreen } from '../../lib/utils'
 import { useSearchParams } from 'next/navigation'
 
 function ShareCounter () {

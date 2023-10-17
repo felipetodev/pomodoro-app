@@ -3,7 +3,7 @@ import {
   buildStyles
 } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
-import { invertTimeValue } from '../lib/utils'
+import { invertTimeValue } from '../../lib/utils'
 
 interface Props {
   time: number
