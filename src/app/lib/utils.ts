@@ -37,3 +37,16 @@ export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyUR
 
   return `${pathname}${queryString}`
 }
+
+export function browserNotification () {
+  void Notification.requestPermission().then((result) => {
+    if (result === 'granted') {
+      const notification = new Notification('Timer', {
+        body: 'Time is up!, go to take a break'
+      })
+      notification.onclick = () => {
+        window.focus()
+      }
+    }
+  })
+}

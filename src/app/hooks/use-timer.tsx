@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { alarmNotification } from '../lib/utils'
+import { alarmNotification, browserNotification } from '../lib/utils'
 import { DEFAULT_TIME } from '../lib/constants'
 import { type TimerProps } from '../lib/types'
 
@@ -25,6 +25,8 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
     bc.onmessage = (e) => {
       setTime(e.data)
     }
+
+    void Notification.requestPermission()
   }, [])
 
   useEffect(() => {
@@ -48,6 +50,7 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
             alarmNotification()
           }
 
+          browserNotification()
           return 0
         }
         bc.postMessage(time - 1000)
