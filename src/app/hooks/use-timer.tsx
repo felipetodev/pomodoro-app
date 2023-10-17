@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
+import { alarmNotification } from '../lib/utils'
 import { DEFAULT_TIME } from '../lib/constants'
 import { type TimerProps } from '../lib/types'
 
 let interval: any
 
 export function useTimer ({ variant }: { variant: TimerProps }) {
+  const [notification, setNotification] = useState(true)
   const [playing, setPlaying] = useState(false)
   const [time, setTime] = useState(DEFAULT_TIME[variant])
 
@@ -33,7 +35,11 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
           clearInterval(interval)
           setPlaying(false)
           setTime(DEFAULT_TIME[variant])
-          bc.postMessage(0)
+
+          if (notification) {
+            alarmNotification()
+          }
+
           return 0
         }
         bc.postMessage(time - 1000)
@@ -48,9 +54,11 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
   }
 
   return {
+    time,
+    playing,
+    notification,
     handlePlay,
     handlePause,
-    playing,
-    time
+    handleNotification: setNotification
   }
 }

@@ -19,7 +19,7 @@ function ShareCounter () {
 
   return (
     <div>
-      <Button onClick={handleWindow}>
+      <Button size='sm' variant='outline' onClick={handleWindow}>
         <Share size={24} />
       </Button>
     </div>

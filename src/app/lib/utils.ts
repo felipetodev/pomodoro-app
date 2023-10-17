@@ -6,6 +6,12 @@ export function cn (...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+export function alarmNotification () {
+  const audio = new Audio('/alarm.mp3')
+  audio.volume = 0.5
+  void audio.play()
+}
+
 export const getTimeFormat = (time: number) => ({
   minutes: () => {
     return Math.floor(time / 1000 / 60).toString().padStart(2, '0')
