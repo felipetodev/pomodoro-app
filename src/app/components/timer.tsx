@@ -8,6 +8,7 @@ import { DEFAULT_TIME } from '../lib/constants'
 import { getTimeFormat } from '../lib/utils'
 
 import { type TimerProps } from '../lib/types'
+import CustomControls from './custom-controls'
 
 function Timer ({ variant }: { variant: TimerProps }) {
   const {
@@ -17,13 +18,14 @@ function Timer ({ variant }: { variant: TimerProps }) {
     handlePlay,
     handlePause,
     handleReset,
+    handleCustomTime,
     handleNotification
   } = useTimer({ variant })
   const searchParams = useSearchParams()
   const hasVariant = searchParams?.get('timer') ?? ''
 
   return (
-    <div className='flex flex-col'>
+    <div className='relative flex flex-col'>
       <Slider
         draggable={false}
         value={[time]}
@@ -43,6 +45,10 @@ function Timer ({ variant }: { variant: TimerProps }) {
           {getTimeFormat(time).minutes()}:{getTimeFormat(time).seconds()}
         </time>
       </CircularProgress>
+      <CustomControls
+        isCustom={hasVariant === 'custom'}
+        handleCustomTime={handleCustomTime}
+      />
       <Controls
         playing={playing}
         handlePlay={handlePlay}

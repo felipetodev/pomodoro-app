@@ -7,7 +7,7 @@ import {
   TabsTrigger
 } from './ui/tabs'
 import { createUrl } from '../lib/utils'
-import { DEFAULT_TIME } from '../lib/constants'
+import { DEFAULT_TIME, DEFAULT_TIME_TYPE } from '../lib/constants'
 
 import { type TimerProps } from '../lib/types'
 
@@ -16,10 +16,10 @@ function TimerSelector () {
   const searchParams = useSearchParams()
   const newParams = new URLSearchParams(searchParams.toString())
   return (
-    <Tabs defaultValue="pomodoro" className="w-full">
+    <Tabs defaultValue={DEFAULT_TIME_TYPE.pomodoro} className="w-full">
       <TabsList className="grid w-full grid-cols-3">
         <TabsTrigger
-          value="pomodoro"
+          value={DEFAULT_TIME_TYPE.pomodoro}
           onClick={() => {
             newParams.delete('timer')
             router.push(createUrl('/', newParams))
@@ -28,18 +28,18 @@ function TimerSelector () {
           Pomodoro
         </TabsTrigger>
         <TabsTrigger
-          value="break"
+          value={DEFAULT_TIME_TYPE.break}
           onClick={() => {
-            newParams.set('timer', 'break')
+            newParams.set('timer', DEFAULT_TIME_TYPE.break)
             router.push(createUrl('/', newParams))
           }}
         >
           Short Break
         </TabsTrigger>
         <TabsTrigger
-          value="custom"
+          value={DEFAULT_TIME_TYPE.custom}
           onClick={() => {
-            newParams.set('timer', 'custom')
+            newParams.set('timer', DEFAULT_TIME_TYPE.custom)
             router.push(createUrl('/', newParams))
           }}
         >

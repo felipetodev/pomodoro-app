@@ -66,6 +66,12 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
     global.localStorage.setItem('notification', val.toString())
   }
 
+  const handleCustomTime = (type: 'plus' | 'minus') => {
+    if (time === 0 && type === 'minus') return
+    if (type === 'plus') setTime((time) => time + 10000)
+    else if (type === 'minus') setTime((time) => time - 10000)
+  }
+
   return {
     time,
     playing,
@@ -73,6 +79,7 @@ export function useTimer ({ variant }: { variant: TimerProps }) {
     handlePlay,
     handlePause,
     handleReset: resetTimer,
-    handleNotification
+    handleNotification,
+    handleCustomTime
   }
 }
