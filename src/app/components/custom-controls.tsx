@@ -12,10 +12,10 @@ function CustomControls ({ isCustom, handleCustomTime }: Props) {
       {isCustom
         ? (
           <div className='flex justify-between w-full absolute bottom-20'>
-            <Button className='h-7 px-1' onClick={() => { handleCustomTime('minus') }}>
+            <Button variant='secondary' className='h-7 px-1' onClick={() => { handleCustomTime('minus') }}>
               <MinusIcon />
             </Button>
-            <Button className='h-7 px-1' onClick={() => { handleCustomTime('plus') }}>
+            <Button variant='secondary' className='h-7 px-1' onClick={() => { handleCustomTime('plus') }}>
               <PlusIcon />
             </Button>
           </div>
