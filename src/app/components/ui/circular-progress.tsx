@@ -13,7 +13,7 @@ interface Props {
 
 function CircularProgress ({ time, maxValue, children }: Props) {
   return (
-    <div className='w-72 h-72 mx-auto my-10'>
+    <div className='w-60 h-60 sm:w-72 sm:h-72 mx-auto my-8 sm:my-10'>
       <CircularProgressbar
         styles={buildStyles({
           pathColor: 'hsl(var(--primary))'

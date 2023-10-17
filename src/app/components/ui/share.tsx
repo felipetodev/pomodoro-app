@@ -8,7 +8,7 @@ function ShareCounter () {
   const variant = searchParams?.get('timer') ?? 'pomodoro'
 
   const handleWindow = () => {
-    const { width, height, left, top } = centerRectOnScreen(350, 350)
+    const { width, height, left, top } = centerRectOnScreen(350, 318)
 
     window.open(
       `${window.location.origin}${(variant !== '') ? `?timer=${variant}` : ''}`,
