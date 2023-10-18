@@ -6,7 +6,7 @@
 
 ## 📌 General
 
-Pomodoro-v0 es una de técnica Pomodoro, un método de gestión del tiempo que fomenta la concentración y la productividad.
+Pomodoro-v0 es una aplicación web que implementa la técnica Pomodoro, un método de gestión del tiempo que fomenta la concentración y la productividad.
 Construibo en Next.js/app, TailwindCSS y TypeScript entre otros.
 
 ## 💻 Stack
