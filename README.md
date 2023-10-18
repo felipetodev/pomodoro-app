@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <a href="https://github.com/felipetodev/pomodoro-app" target="_blank">
+    <img src="./public/app.gif" width="100%" alt="Banner" />
+  </a>
+</p>
 
-## Getting Started
+## 📌 General
 
-First, run the development server:
+Pomodoro-v0 es una de técnica Pomodoro, un método de gestión del tiempo que fomenta la concentración y la productividad.
+Construibo en Next.js/app, TailwindCSS y TypeScript entre otros.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 💻 Stack
+
+- [next](https://nextjs.org/): Framework para construir aplicaciones React renderizadas en el servidor.
+- [react](https://reactjs.org/): Biblioteca de JavaScript para construir interfaces de usuario.
+- [typescript](https://www.typescriptlang.org/): Un superset de tipado de JavaScript que compila a JavaScript estándar.
+- [shadcn/ui](https://ui.shadcn.com/): UI Componentes.
+
+## 📝 Resumen proyecto
+
+- [**src**](src): Directorio principal del código fuente.
+- [**src/app**](src/app): Contiene la lógica principal de la aplicación y los componentes.
+- [**src/components**](src/components): Alberga componentes de interfaz de usuario reutilizables.
+- [**src/hooks**](src/app/hooks): Hooks personalizados de React para gestionar la lógica empresarial.
+- [**src/lib**](src/app/lib): Funciones de utilidad y módulos auxiliares.
+- [**src/styles**](src/app/globals): Variantes globales de estilos CSS de tailwind.
+- [**src/types**](src/app/types): Definiciones de tipos TypeScript.
+- [**public**](public): Directorio público para activos estáticos y resultados de la compilación.
+
+## 🚀 Run Locally
+
+1.Clona el repositorio:
+
+```sh
+git clone https://github.com/felipetodev/pomodoro-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2.Instala las dependencias:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+bun install
 
-## Learn More
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+yarn install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3.Ejecutar script de desarrollo:
 
-## Deploy on Vercel
+```bash
+pnpm dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+bun dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+npm run dev
+
+yarn dev
+```
+
+## 📄 License
+
+Este proyecto está bajo la licencia **MIT License**
