@@ -20,11 +20,11 @@ Construibo en Next.js/app, TailwindCSS y TypeScript entre otros.
 
 - [**src**](src): Directorio principal del código fuente.
 - [**src/app**](src/app): Contiene la lógica principal de la aplicación y los componentes.
-- [**src/app/components**](src/components): Alberga componentes de interfaz de usuario reutilizables.
+- [**src/app/components**](src/app/components): Alberga componentes de interfaz de usuario reutilizables.
 - [**src/app/hooks**](src/app/hooks): Hooks personalizados de React para gestionar la lógica empresarial.
 - [**src/app/lib**](src/app/lib): Funciones de utilidad y módulos auxiliares.
-- [**src/app/styles**](src/app/globals): Variantes globales de estilos CSS de tailwind.
-- [**src/app/types**](src/app/types): Definiciones de tipos TypeScript.
+- [**src/app/globals**](src/app/globals): Variantes globales de estilos CSS de tailwind.
+- [**src/app/lib/types**](src/app/lib/types): Definiciones de tipos TypeScript.
 - [**public**](public): Directorio público para activos estáticos y resultados de la compilación.
 
 ## 🚀 Run Locally
